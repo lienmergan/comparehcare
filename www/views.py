@@ -11,10 +11,10 @@ from .serializers import UserSerializer, PostalCodeSerializer, CitySerializer, U
 
 # Create your views here.
 
-
+"""
 def index(request):
     return render(request, "www/index.html")
-
+"""
 
 """
 @api_view(['GET'])
