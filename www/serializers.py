@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from .models import UserProfile, City, PostalCode, Address, HealthInsurance, Category, \
-    HealthInsuranceContribution, HealthInsuranceBenefit
+    HealthInsuranceContribution, HealthInsuranceBenefit, HouseholdType
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -24,8 +24,15 @@ class PostalCodeSerializer(serializers.ModelSerializer):
         fields = ('id', 'code', 'city')
 
 
+class HouseholdTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HouseholdType
+        fields = ('id', 'household_type')
+
+
 class UserProfileSerializer(serializers.ModelSerializer):
     user = UserSerializer()
+    household_type = HouseholdTypeSerializer()
 
     class Meta:
         model = UserProfile

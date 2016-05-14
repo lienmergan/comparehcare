@@ -8,8 +8,12 @@ from rest_framework.routers import DefaultRouter
 # The API URLs are now determined automatically by the router.
 router = DefaultRouter(trailing_slash=False)
 router.register(r'postalcodes', views.PostalCodeViewSet)
-router.register(r'cities', views.CityCodeViewSet)
+router.register(r'cities', views.CityViewSet)
+router.register(r'users', views.UserViewSet)
 router.register(r'userprofiles', views.UserProfileViewSet)
+router.register(r'householdtypes', views.HouseholdTypeViewSet)
+router.register(r'addresses', views.AddressViewSet)
+router.register(r'healthinsurances', views.HealthInsuranceViewSet)
 
 
 # Additionally, we include the login URLs for the browsable API.
