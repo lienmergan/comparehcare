@@ -167,3 +167,7 @@ class HealthInsuranceBenefit(models.Model):
 
     class Meta:
         verbose_name_plural = "HealthInsuranceBenefits"
+
+    def __str__(self):
+        # Returns the description of the healtcare benefit
+        return self.health_insurance.name + ' ' + self.description

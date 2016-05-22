@@ -1,7 +1,6 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import detail_route
 from rest_framework import viewsets
@@ -12,8 +11,8 @@ from .serializers import UserSerializer, PostalCodeSerializer, CitySerializer, U
 # Create your views here.
 
 """
-def index(request):
-    return render(request, "www/index.html")
+def home(request):
+    return render(request, "www/home.html")
 """
 
 """
@@ -74,6 +73,21 @@ class AddressViewSet(viewsets.ModelViewSet):
 class HealthInsuranceViewSet(viewsets.ModelViewSet):
     queryset = HealthInsurance.objects.all()
     serializer_class = HealthInsuranceSerializer
+
+
+class HealthInsuranceContributionViewSet(viewsets.ModelViewSet):
+    queryset = HealthInsuranceContribution.objects.all()
+    serializer_class = HealthInsuranceContributionSerializer
+
+
+class HealthInsuranceBenefitViewSet(viewsets.ModelViewSet):
+    queryset = HealthInsuranceBenefit.objects.all()
+    serializer_class = HealthInsuranceBenefitSerializer
+
+
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 

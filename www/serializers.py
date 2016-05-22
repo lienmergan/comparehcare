@@ -68,7 +68,7 @@ class HealthInsuranceContributionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HealthInsuranceContribution
-        fields = ('id', 'yearly_price', 'created_at', 'updated_at', 'deleted_at', 'health_insurance')
+        fields = ('id', 'contribution', 'created_at', 'updated_at', 'deleted_at', 'health_insurance')
 
 
 class HealthInsuranceBenefitSerializer(serializers.ModelSerializer):
@@ -77,4 +77,4 @@ class HealthInsuranceBenefitSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = HealthInsuranceBenefit
-        fields = ('description', 'created_at', 'updated_at', 'deleted_at', 'health_insurance', 'category')
+        fields = ('description', 'single', 'couples', 'family_little_children', 'family_teenagers', 'seniors', 'created_at', 'updated_at', 'deleted_at', 'health_insurance', 'category')

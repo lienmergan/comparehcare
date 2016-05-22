@@ -15,6 +15,7 @@ class PostalCodeResource(resources.ModelResource):
 
 
 class PostalCodeAdmin(ImportExportModelAdmin):
+    ordering = ('code',)
     resource_class = PostalCodeResource
     pass
 
@@ -27,6 +28,7 @@ class CityResource(resources.ModelResource):
 
 
 class CityAdmin(ImportExportModelAdmin):
+    ordering = ('name',)
     resource_class = CityResource
     pass
 
@@ -51,6 +53,7 @@ class HealthInsuranceResource(resources.ModelResource):
 
 
 class HealthInsuranceAdmin(ImportExportModelAdmin):
+    ordering = ('name',)
     resource_class = HealthInsuranceResource
     pass
 
@@ -63,6 +66,7 @@ class HealthInsuranceContributionResource(resources.ModelResource):
 
 
 class HealthInsuranceContributionAdmin(ImportExportModelAdmin):
+    ordering = ('contribution',)
     resource_class = HealthInsuranceContributionResource
     pass
 
@@ -75,6 +79,7 @@ class CategoryResource(resources.ModelResource):
 
 
 class CategoryAdmin(ImportExportModelAdmin):
+    ordering = ('name',)
     resource_class = CategoryResource
     pass
 
@@ -82,12 +87,16 @@ class CategoryAdmin(ImportExportModelAdmin):
 class HealthInsuranceBenefitResource(resources.ModelResource):
     class Meta:
         model = HealthInsuranceBenefit
-        fields = ('id', 'description', 'profile',)
+        fields = ('id', 'description', 'health_insurance',)
 
 
 class HealthInsuranceBenefitAdmin(ImportExportModelAdmin):
     resource_class = HealthInsuranceBenefitResource
     pass
+
+
+class HouseholdTypeAdmin(admin.ModelAdmin):
+    ordering = ('household_type',)
 
 
 # Register your models here.
@@ -99,4 +108,4 @@ admin.site.register(HealthInsuranceBenefit, HealthInsuranceBenefitAdmin)
 admin.site.register(Address, AddressAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(UserProfile)
-admin.site.register(HouseholdType)
+admin.site.register(HouseholdType, HouseholdTypeAdmin)

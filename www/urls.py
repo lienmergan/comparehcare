@@ -14,11 +14,13 @@ router.register(r'userprofiles', views.UserProfileViewSet)
 router.register(r'householdtypes', views.HouseholdTypeViewSet)
 router.register(r'addresses', views.AddressViewSet)
 router.register(r'healthinsurances', views.HealthInsuranceViewSet)
+router.register(r'healthinsurancecontributions', views.HealthInsuranceContributionViewSet)
+router.register(r'healthinsurancebenefit', views.HealthInsuranceBenefitViewSet)
+router.register(r'categories', views.CategoryViewSet)
 
 
 # Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
-    # url(r'^', views.index, name='index'),
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
